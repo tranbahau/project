@@ -1,0 +1,23 @@
+<div class="main-body">
+  <mat-card>
+    <form action="" method="post" [formGroup]="loginMainForm">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-form-field appearance="standard" [style]="'width: 200px;'">
+          <mat-label>UserID</mat-label>
+          <input
+            formControlName="userId"
+            (input)="clear()"
+            (blur)="validateInput('userId')"
+            matInput
+            type="text"
+          />
+          <mat-hint>{{ status }}</mat-hint>
+        </mat-form-field>
+
+        <button [style]="'width: 120px;'" mat-raised-button color="primary" (click)="login();">
+          Login
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
