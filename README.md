@@ -1,4 +1,0 @@
-Angular
-Typescript
-SASS
-Nodejs
