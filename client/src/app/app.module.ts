@@ -13,6 +13,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 // Root Component
 import { AppRoutingModule } from './app-routing.module';
@@ -22,9 +25,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MessagesService } from './service/messages.service';
 import { ValidationService } from './service/validation.service';
+import { HomepageComponent } from './homepage/homepage.component';
+import { WindowService } from './service/window.service';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, HomepageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,8 +44,11 @@ import { ValidationService } from './service/validation.service';
     MatInputModule,
     MatCardModule,
     MatSnackBarModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatExpansionModule,
   ],
-  providers: [MessagesService, ValidationService],
+  providers: [MessagesService, ValidationService, WindowService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

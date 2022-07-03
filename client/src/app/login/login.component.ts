@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SystemConstant } from '../const/system-const';
 import { ValidateConstant } from '../const/validate-const';
 import { MessagesService } from '../service/messages.service';
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private messagesService: MessagesService
   ) {}
 
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
     const userId = this.loginMainForm.controls['userId'].value;
     if(userId) {
       this.messagesService.show('Successfull! Welcome back ' + userId)
+      this.router.navigate(['/homepage']);
     }
   }
 }
