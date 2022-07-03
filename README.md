@@ -1,4 +1,4 @@
-# Angular
-# Typescript
-# SASS
-# Nodejs
+Angular
+Typescript
+SASS
+Nodejs
