@@ -9,5 +9,5 @@ import { SystemConstant } from 'src/app/const/system-const';
 })
 
 export class AppComponent {
-  title = SystemConstant.MAIN_TITLE;
+  title =  SystemConstant.MAIN_TITLE;
 }
