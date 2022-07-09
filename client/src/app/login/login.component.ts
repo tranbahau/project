@@ -1,9 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SystemConstant } from '../const/system-const';
 import { ValidateConstant } from '../const/validate-const';
 import { MessagesService } from '../service/messages.service';
+import { UserInfo } from '../models/user';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +15,15 @@ import { MessagesService } from '../service/messages.service';
 export class LoginComponent implements OnInit {
   loginMainForm!: FormGroup;
   status!: string;
+  userInfo!: UserInfo;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private httpClient: HttpClient
   ) {}
+
 
   ngOnInit(): void {
     this.loginMainForm = this.fb.group({
@@ -38,10 +43,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    const userId = this.loginMainForm.controls['userId'].value;
-    if(userId) {
-      this.messagesService.show('Successfull! Welcome back ' + userId)
-      this.router.navigate(['/homepage']);
-    }
+    this.userInfo = new UserInfo();
+    this.userInfo = {
+      userId: this.loginMainForm.controls['userId'].value,
+      password: ''
+    };
+    this.httpClient.post('http://localhost:3000/authenticate', this.userInfo).subscribe(data => {
+      if(data === 'success') {
+        this.router.navigate(['homepage']);
+        this.messagesService.show('Login successfull');
+      }
+    });
   }
 }

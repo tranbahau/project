@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material Module
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -47,6 +48,7 @@ import { WindowService } from './service/window.service';
     MatSidenavModule,
     MatSelectModule,
     MatExpansionModule,
+    HttpClientModule
   ],
   providers: [MessagesService, ValidationService, WindowService],
   bootstrap: [AppComponent],
