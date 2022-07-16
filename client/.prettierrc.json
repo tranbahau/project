@@ -1,0 +1,15 @@
+{
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "excludeFiles": ["package-lock.json"],
+      "options": {
+        "tabWidth": 2,
+        "bracketSpacing": false,
+        "endOfLine": "crlf",
+        "printWidth": 120,
+        "trailingComma": "all"
+      }
+    }
+  ]
+}
